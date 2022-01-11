@@ -1,2 +1,5 @@
-# Discord-Nitro-Gen-Bot
-Generate discord nitro as bot
+# アルゴリズム
+16桁の小/大の英数を無作為に生成し、botで出力します。
+
+# 成功率
+多分、極稀にあるでしょう
