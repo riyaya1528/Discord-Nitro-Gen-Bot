@@ -3,7 +3,10 @@ package net.riyaya;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.riyaya.DataBase.Config;
+import net.riyaya.Utils.Generator;
 import net.riyaya.Utils.Logger;
+
+import java.util.Timer;
 
 public class Main {
     public static Config                config;
@@ -11,6 +14,8 @@ public class Main {
     public static JDA                   jda;
 
     public static void main(String[] args) {
+        Timer time = new Timer();
+
         config = new Config();
         config.load();
 
@@ -31,5 +36,7 @@ public class Main {
             Logger.warn(e.toString());
             System.exit(0);
         }
+
+        time.scheduleAtFixedRate(new Generator(), 3000, config.getGenSec() * 1000L);
     }
 }

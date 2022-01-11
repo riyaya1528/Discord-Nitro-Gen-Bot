@@ -13,8 +13,8 @@ public class Config {
     private static JsonNode     jsonNode;
     private static ObjectNode   objectNode;
 
-    private static String       token, prefix;
-    private static int          servers;
+    private static String       token, genChannel;
+    private static int          genSec;
 
 
     public void load() {
@@ -25,8 +25,8 @@ public class Config {
             objectNode          = jsonNode.deepCopy();
 
             token               = objectNode.get("token").asText();
-            prefix              = objectNode.get("prefix").asText();
-            servers             = objectNode.get("servers").asInt();
+            genSec              = objectNode.get("generate_per_sec").asInt();
+            genChannel          = objectNode.get("generate_channel").asText();
         }catch (Exception e) {
             Logger.warn(e.toString());
             Logger.warn("Couldn't load config.json");
@@ -47,15 +47,11 @@ public class Config {
         return token;
     }
 
-    public String getPrefix() {
-        return prefix;
+    public int getGenSec() {
+        return genSec;
     }
 
-    public int getServers() {
-        return servers;
-    }
-
-    public void setServers(int value) {
-        servers = value;
+    public String getGenChannel() {
+        return genChannel;
     }
 }
