@@ -13,8 +13,8 @@ public class Config {
     private static JsonNode     jsonNode;
     private static ObjectNode   objectNode;
 
-    private static String       token;
-    private static int          genChannel, genSec;
+    private static String       token, genChannel;
+    private static int          genSec;
 
 
     public void load() {
@@ -25,7 +25,7 @@ public class Config {
             objectNode          = jsonNode.deepCopy();
 
             token               = objectNode.get("token").asText();
-            genChannel          = objectNode.get("generate_channel").asInt();
+            genChannel          = objectNode.get("generate_channel").asText();
             genSec              = objectNode.get("generate_per_sec").asInt();
         }catch (Exception e) {
             Logger.warn(e.toString());
@@ -47,7 +47,7 @@ public class Config {
         return token;
     }
 
-    public int getGenChannel() {
+    public String getGenChannel() {
         return genChannel;
     }
 

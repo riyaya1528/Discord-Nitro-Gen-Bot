@@ -16,7 +16,7 @@ public class Generator extends TimerTask {
         StringBuilder code = null;
         Random random = new Random();
 
-        for(int i = 0; i < 16; i++) {
+        for(int i = 0; i < 17; i++) {
             if(code == null) {
                 code = new StringBuilder(letters.charAt(random.nextInt(62)));
             }else {
